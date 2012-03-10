@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UfXtract.UnitTests</RootNamespace>
     <AssemblyName>UfXtractUnitTests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -44,75 +44,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="test_geo_1.cs" />
-    <Compile Include="test_geo_2.cs" />
-    <Compile Include="test_hCalendar_1.cs" />
-    <Compile Include="test_hCalendar_10.cs" />
-    <Compile Include="test_hCalendar_11.cs" />
-    <Compile Include="test_hCalendar_12.cs" />
-    <Compile Include="test_hCalendar_13.cs" />
-    <Compile Include="test_hCalendar_14.cs" />
-    <Compile Include="test_hCalendar_2.cs" />
-    <Compile Include="test_hCalendar_3.cs" />
-    <Compile Include="test_hCalendar_4.cs" />
-    <Compile Include="test_hCalendar_5.cs" />
-    <Compile Include="test_hCalendar_6.cs" />
-    <Compile Include="test_hCalendar_7.cs" />
-    <Compile Include="test_hCalendar_8.cs" />
-    <Compile Include="test_hCalendar_9.cs" />
-    <Compile Include="test_hCard_1.cs" />
-    <Compile Include="test_hCard_10.cs" />
-    <Compile Include="test_hCard_11.cs" />
-    <Compile Include="test_hCard_12.cs" />
-    <Compile Include="test_hCard_13.cs" />
-    <Compile Include="test_hCard_14.cs" />
-    <Compile Include="test_hCard_15.cs" />
-    <Compile Include="test_hCard_16.cs" />
-    <Compile Include="test_hCard_17.cs" />
-    <Compile Include="test_hCard_18.cs" />
-    <Compile Include="test_hCard_19.cs" />
-    <Compile Include="test_hCard_2.cs" />
-    <Compile Include="test_hCard_20.cs" />
-    <Compile Include="test_hCard_21.cs" />
-    <Compile Include="test_hCard_22.cs" />
-    <Compile Include="test_hCard_3.cs" />
-    <Compile Include="test_hCard_4.cs" />
-    <Compile Include="test_hCard_5.cs" />
-    <Compile Include="test_hCard_6.cs" />
-    <Compile Include="test_hCard_7.cs" />
-    <Compile Include="test_hCard_8.cs" />
-    <Compile Include="test_hCard_9.cs" />
-    <Compile Include="test_hCard_99.cs" />
-    <Compile Include="test_hRecipe_1.cs" />
-    <Compile Include="test_hRecipe_2.cs" />
-    <Compile Include="test_hRecipe_3.cs" />
-    <Compile Include="test_hResume_1.cs" />
-    <Compile Include="test_hResume_2.cs" />
-    <Compile Include="test_hResume_3.cs" />
-    <Compile Include="test_hResume_4.cs" />
-    <Compile Include="test_hResume_6.cs" />
-    <Compile Include="test_hResume_7.cs" />
-    <Compile Include="test_ISODurations.cs" />
-    <Compile Include="test_ISODateTime.cs" />
+    <Compile Include="hCalendar\test_hCalendar_1.cs" />
+    <Compile Include="hCalendar\test_hCalendar_10.cs" />
+    <Compile Include="hCalendar\test_hCalendar_11.cs" />
+    <Compile Include="hCalendar\test_hCalendar_12.cs" />
+    <Compile Include="hCalendar\test_hCalendar_13.cs" />
+    <Compile Include="hCalendar\test_hCalendar_14.cs" />
+    <Compile Include="hCalendar\test_hCalendar_2.cs" />
+    <Compile Include="hCalendar\test_hCalendar_3.cs" />
+    <Compile Include="hCalendar\test_hCalendar_4.cs" />
+    <Compile Include="hCalendar\test_hCalendar_5.cs" />
+    <Compile Include="hCalendar\test_hCalendar_6.cs" />
+    <Compile Include="hCalendar\test_hCalendar_7.cs" />
+    <Compile Include="hCalendar\test_hCalendar_8.cs" />
+    <Compile Include="hCalendar\test_hCalendar_9.cs" />
+    <Compile Include="hCard\test_hCard_1.cs" />
+    <Compile Include="hCard\test_hCard_10.cs" />
+    <Compile Include="hCard\test_hCard_11.cs" />
+    <Compile Include="hCard\test_hCard_12.cs" />
+    <Compile Include="hCard\test_hCard_13.cs" />
+    <Compile Include="hCard\test_hCard_14.cs" />
+    <Compile Include="hCard\test_hCard_15.cs" />
+    <Compile Include="hCard\test_hCard_16.cs" />
+    <Compile Include="hCard\test_hCard_17.cs" />
+    <Compile Include="hCard\test_hCard_18.cs" />
+    <Compile Include="hCard\test_hCard_19.cs" />
+    <Compile Include="hCard\test_hCard_2.cs" />
+    <Compile Include="hCard\test_hCard_20.cs" />
+    <Compile Include="hCard\test_hCard_21.cs" />
+    <Compile Include="hCard\test_hCard_22.cs" />
+    <Compile Include="hCard\test_hCard_3.cs" />
+    <Compile Include="hCard\test_hCard_4.cs" />
+    <Compile Include="hCard\test_hCard_5.cs" />
+    <Compile Include="hCard\test_hCard_6.cs" />
+    <Compile Include="hCard\test_hCard_7.cs" />
+    <Compile Include="hCard\test_hCard_8.cs" />
+    <Compile Include="hCard\test_hCard_9.cs" />
+    <Compile Include="hCard\test_hCard_99.cs" />
+    <Compile Include="hResume\test_hResume_1.cs" />
+    <Compile Include="hResume\test_hResume_2.cs" />
+    <Compile Include="hResume\test_hResume_3.cs" />
+    <Compile Include="hResume\test_hResume_4.cs" />
+    <Compile Include="hResume\test_hResume_6.cs" />
+    <Compile Include="hResume\test_hResume_7.cs" />
+    <Compile Include="DateTime\test_ISODurations.cs" />
+    <Compile Include="DateTime\test_ISODateTime.cs" />
     <Compile Include="test_PhoneNumber.cs" />
-    <Compile Include="test_value_dt_test_abbr_YYYY_MM_DD_abbr_HH_MM.cs" />
-    <Compile Include="test_value_dt_test_abbr_YYYY_MM_DD__HH_MM.cs" />
-    <Compile Include="test_value_dt_test_YYYY_DDD__HH_MM_SS.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__0Ham_EEam.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__12am_12pm.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__abbr_HH_MMpm.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__HHpm.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__HH_MM.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__HH_MMZ_EE_NN_UUZ.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__HH_MM_XX_YY__EE_NN_UU__XXYY.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__HH_MM_XX__EE_NN_UU__Y.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__Hpm_EEpm.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__H_MMam_Epm.cs" />
-    <Compile Include="test_value_dt_test_YYYY_MM_DD__H_MM_SSpm_EE_NN_UUpm.cs" />
-    <Compile Include="test_W3CNote.cs" />
-    <Compile Include="test_RFC3389.cs" />
+    <Compile Include="DateTime\test_value_dt_test_abbr_YYYY_MM_DD_abbr_HH_MM.cs" />
+    <Compile Include="DateTime\test_value_dt_test_abbr_YYYY_MM_DD__HH_MM.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_DDD__HH_MM_SS.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__0Ham_EEam.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__12am_12pm.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__abbr_HH_MMpm.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__HHpm.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__HH_MM.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__HH_MMZ_EE_NN_UUZ.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__HH_MM_XX_YY__EE_NN_UU__XXYY.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__HH_MM_XX__EE_NN_UU__Y.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__Hpm_EEpm.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__H_MMam_Epm.cs" />
+    <Compile Include="DateTime\test_value_dt_test_YYYY_MM_DD__H_MM_SSpm_EE_NN_UUpm.cs" />
+    <Compile Include="DateTime\test_W3CNote.cs" />
+    <Compile Include="DateTime\test_RFC3389.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test_YYYY_MM_DD__HH_MM_SS_XXYY__EE_NN__Z.cs" />
+    <Compile Include="DateTime\test_YYYY_MM_DD__HH_MM_SS_XXYY__EE_NN__Z.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ufXtract\UfXtract.csproj">

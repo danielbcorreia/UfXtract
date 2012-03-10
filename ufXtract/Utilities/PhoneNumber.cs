@@ -67,7 +67,7 @@ namespace UfXtract.Utilities
         /// Returns a canonicalised version of the telephone number 
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
             return this.canonicalisation;
         }

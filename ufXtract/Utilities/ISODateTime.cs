@@ -364,7 +364,7 @@ namespace UfXtract.Utilities
                 if (match.Groups[3].Success)
                     this.Second = Convert.ToInt32(match.Groups[3].ToString().Replace(timeSeparator, ""));
                 if (match.Groups[4].Success)
-                    this.DecimalSecond = Convert.ToDecimal(FormatNumber("." + match.Groups[4].ToString()));
+                    this.DecimalSecond = Convert.ToDecimal(FormatNumber("0." + match.Groups[4].ToString()));
             }
         }
 
