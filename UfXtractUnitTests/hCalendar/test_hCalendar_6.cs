@@ -9,6 +9,7 @@ using UfXtract;
 using UfXtract.Utilities;
 
 namespace UfXtract.UnitTests.hCalendar {
+    using UfXtract.Describers;
 
     [TestFixture]
     public class test_hCalendar_6 {

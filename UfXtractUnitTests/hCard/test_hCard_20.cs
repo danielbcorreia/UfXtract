@@ -10,8 +10,9 @@ using UfXtract.Utilities;
  
 namespace UfXtract.UnitTests.hCard
 {
- 
-[TestFixture]
+    using UfXtract.Describers;
+
+    [TestFixture]
 public class test_hCard_20
 {
 // http://www.ufxtract.com/testsuite/hcard/hcard20.htm

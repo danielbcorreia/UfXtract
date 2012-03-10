@@ -1,15 +1,9 @@
-//Copyright (c) 2007 - 2010 Glenn Jones
+// Copyright (c) 2007 - 2010 Glenn Jones
+// Refactored by Daniel Correia (2012)
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace UfXtract
+namespace UfXtract.Describers
 {
+    using System.Xml.Serialization;
 
     /// <summary>
     /// Microformats format description
@@ -17,20 +11,15 @@ namespace UfXtract
     [XmlRoot("UfFormatDescriber")]
     public class UfFormatDescriber
     {
-
- 
-
-        private string name = string.Empty;
-        private string description = string.Empty;
-        private FormatTypes type = FormatTypes.Elemental;
-        private UfElementDescriber baseElement = new UfElementDescriber();
+        private string _name = string.Empty;
+        private string _description = string.Empty;
+        private FormatTypes _type = FormatTypes.Elemental;
+        private UfElementDescriber _baseElement = new UfElementDescriber();
 
         /// <summary>
         /// Microformats format description
         /// </summary>
         public UfFormatDescriber() { }
-
-        
 
         /// <summary>
         /// The name of the microformats formet
@@ -38,8 +27,8 @@ namespace UfXtract
         [XmlAttribute("name")] 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         /// <summary>
@@ -48,8 +37,8 @@ namespace UfXtract
         [XmlIgnoreAttribute] 
         public string Description
         {
-            get { return description; }
-            set { description = value; }
+            get { return _description; }
+            set { _description = value; }
         }
 
         /// <summary>
@@ -58,11 +47,13 @@ namespace UfXtract
         [XmlElement("base-element")]
         public UfElementDescriber BaseElement
         {
-            get { return baseElement; }
+            get { return _baseElement; }
             set { 
-                baseElement = value;
-                if( baseElement.CompoundName == "")
-                    baseElement.RootElement = true;
+                _baseElement = value;
+
+                if (_baseElement.CompoundName == "") {
+                    _baseElement.RootElement = true;
+                }
             }
         }
 
@@ -72,17 +63,23 @@ namespace UfXtract
         [XmlElement("type")]
         public FormatTypes Type
         {
-            get { return type; }
-            set { type = value; }
+            get { return _type; }
+            set { _type = value; }
         }
-
 
         /// <summary>
         /// Microformats format type
         /// </summary>
         public enum FormatTypes
         {
+            /// <summary>
+            /// Specifies a simple format type
+            /// </summary>
             Elemental,
+
+            /// <summary>
+            /// Specifies a compount format type
+            /// </summary>
             Compound
         }
     }

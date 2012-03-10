@@ -10,8 +10,9 @@ using UfXtract.Utilities;
  
 namespace UfXtract.UnitTests.hResume
 {
- 
-[TestFixture]
+    using UfXtract.Describers;
+
+    [TestFixture]
 public class test_hResume_6
 {
 // http://www.ufxtract.com/testsuite/hresume/hresume6.htm

@@ -10,8 +10,9 @@ using UfXtract.Utilities;
  
 namespace UfXtract.UnitTests.hCalendar
 {
- 
-[TestFixture]
+    using UfXtract.Describers;
+
+    [TestFixture]
 public class test_hCalendar_5
 {
 // http://www.ufxtract.com/testsuite/hcalendar/hcalendar5.htm

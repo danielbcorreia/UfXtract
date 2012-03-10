@@ -10,8 +10,9 @@ using UfXtract.Utilities;
  
 namespace UfXtract.UnitTests.hCalendar
 {
- 
-[TestFixture]
+    using UfXtract.Describers;
+
+    [TestFixture]
 public class test_value_dt_test_YYYY_DDD__HH_MM_SS
 {
 // http://microformats.org/wiki/value-dt-test-YYYY-DDD--HH-MM-SS

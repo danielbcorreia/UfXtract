@@ -9,6 +9,7 @@ using UfXtract;
 using UfXtract.Utilities;
 
 namespace UfXtract.UnitTests.hCard {
+    using UfXtract.Describers;
 
     [TestFixture]
     public class test_hCard_1 {

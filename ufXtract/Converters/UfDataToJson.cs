@@ -9,6 +9,8 @@ using UfXtract.Utilities;
 
 namespace UfXtract
 {
+    using UfXtract.Describers;
+
     /// <summary>
     /// Converts a UfDataNode structure into JSON
     /// </summary>

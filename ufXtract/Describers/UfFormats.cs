@@ -1,16 +1,17 @@
-//Copyright (c) 2007 - 2010 Glenn Jones
+// Copyright (c) 2007 - 2010 Glenn Jones
+// Refactored by Daniel Correia (2012)
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UfXtract
+namespace UfXtract.Describers
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
+    ///<summary>
+    ///</summary>
     public class UfFormats
     {
 
         private UfFormats() { }
-
 
         #region "Compound formats"
         //-----------------------------------------------------------------------
@@ -486,52 +487,59 @@ namespace UfXtract
         #endregion
 
 
+        #region Elemental formats
 
-        #region "Elemental formats "
-        //-----------------------------------------------------------------------
-
+        ///<summary>Gets the Format Describer for the XHTML Friends Network microformat</summary>
+        ///<returns>The UfFormatDescriber for Xfn</returns>
         public static UfFormatDescriber Xfn()
         {
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "xfn",
+                Description = "XHTML Friends Network, describes realtionships",
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "xfn";
-            uFormat.Description = "XHTML Friends Network, describes realtionships";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfElementDescriber uFElement = new UfElementDescriber
+            { 
+                Name = "xfn", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlTextAttribute 
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "xfn";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlTextAttribute;
             uFormat.BaseElement = uFElement;
+            uFElement.AllowedTags.Add("a", "link");
 
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("met", ""));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("co-worker", ""));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("colleague", ""));
+            uFElement.AddAttributeValue(
+                new Dictionary<string, string>
+                    {
+                        {"met", ""},
+                        {"co-worker", ""},
+                        {"colleague", ""},
+                        {"muse", "" },
+                        {"crush", "" },
+                        {"date", "" },
+                        {"sweetheart", "" },
 
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("muse", ""));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("crush", ""));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("date", ""));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("sweetheart", ""));
+                        {"co-resident", "neighbor" },
+                        {"neighbor", "co-resident" },
 
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("co-resident", "neighbor"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("neighbor", "co-resident"));
+                        {"child", "parent sibling spouse kin"},
+                        {"parent", "child sibling spouse kin"},
+                        {"sibling", "child parent spouse kin"},
+                        {"spouse", "child parent sibling kin" },
+                        {"kin", "child parent sibling spouse"},
 
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("child", "parent sibling spouse kin"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("parent", "child sibling spouse kin"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("sibling", "child parent spouse kin"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("spouse", "child parent sibling kin"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("kin", "child parent sibling spouse"));
+                        {"contact", "acquaintance friend"},
+                        {"acquaintance", "contact friend"},
+                        {"friend", "contact friend"},
 
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("contact", "acquaintance friend"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("acquaintance", "contact friend"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("friend", "contact friend"));
-
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("me", "contact acquaintance friend met co-worker colleague co-resident neighbor child parent sibling spouse kin muse crush date sweetheart"));
+                        {"me", "contact acquaintance friend met co-worker colleague co-resident neighbor " 
+                                + "child parent sibling spouse kin muse crush date sweetheart"}
+                    }
+                );
 
             return uFormat;
-
         }
 
         public static UfFormatDescriber NoFollow()
@@ -1057,6 +1065,27 @@ namespace UfXtract
 
         #endregion
 
+    }
 
+    public static class ElementUtils 
+    {
+        public static void AddAttributeValue(this UfElementDescriber describer, string name, string excludeValues)
+        {
+            describer.AttributeValues.Add(new UfAttributeValueDescriber(name, excludeValues));
+        }
+
+        public static void AddAttributeValue(this UfElementDescriber describer, IDictionary<string, string> dictionary) 
+        {
+            foreach (var name in dictionary.Keys) {
+                describer.AttributeValues.Add(new UfAttributeValueDescriber(name, dictionary[name]));
+            }
+        }
+
+        public static void Add(this ArrayList list, params string[] values) 
+        {
+            foreach (var value in values) {
+                list.Add(value);
+            }
+        }
     }
 }

@@ -1,36 +1,30 @@
-//Copyright (c) 2007 - 2010 Glenn Jones
-
-using System;
-using System.Xml;
-using System.Web;
-using System.Net;
-using System.IO;
-using System.Text;
-using System.Collections;
-using HtmlAgilityPack;
-
+// Copyright (c) 2007 - 2010 Glenn Jones
+// Refactored by Daniel Correia (2012)
 
 namespace UfXtract
 {
+    using System;
+    using System.Web;
+    using System.Collections;
+    using HtmlAgilityPack;
+
+    using UfXtract.Describers;
 
     /// <summary>
     /// Loads a webpage and parse the results
     /// </summary>
     public class UfWebRequest
     {
-
-        private Urls parsedUrls = new Urls();
-        private UfDataNode data = new UfDataNode();
-        private UfFormatDescriber formatDescriber = new UfFormatDescriber();
-        private ArrayList formatDescriberArray = new ArrayList();
-        private string userAgent = "";
-
+        private string _userAgent = "";
+        private Urls _parsedUrls = new Urls();
+        private UfDataNode _data = new UfDataNode();
+        private ArrayList _formatDescriberArray = new ArrayList();
+        private UfFormatDescriber _formatDescriber = new UfFormatDescriber();
 
         /// <summary>
         /// Loads a webpage and parse the results
         /// </summary>
-        public UfWebRequest(){}
-
+        public UfWebRequest() {}
 
         /// <summary>
         /// Loads a single Html pages and does a microformat parse
@@ -39,11 +33,10 @@ namespace UfXtract
         /// <param name="formatDescriber">A format describer for microformat to be parsed</param>
         public void Load(string url, UfFormatDescriber formatDescriber)
         {
-            this.formatDescriber = formatDescriber;
-            try
-            {
-                if (url != string.Empty)
-                {
+            _formatDescriber = formatDescriber;
+
+            try {
+                if (url != string.Empty) {
                     // Check for issues with url
                     url = url.Trim();
                     url = HttpUtility.UrlDecode(url);
@@ -52,10 +45,13 @@ namespace UfXtract
 
                     if (webPage != null)
                     {
-                        Url urlReport = new Url();
-                        urlReport.Address = webPage.Url;
-                        urlReport.Status = webPage.StatusCode;
-                        parsedUrls.Add(urlReport);
+                        Url urlReport = new Url
+                        {
+                            Address = webPage.Url, 
+                            Status = webPage.StatusCode
+                        };
+
+                        _parsedUrls.Add(urlReport);
                         DateTime started = DateTime.Now;
 
                         if (webPage.StatusCode == 200 && webPage.Html != null)
@@ -70,19 +66,15 @@ namespace UfXtract
                         Urls.Add(urlReport);
                     }
 
-                }
-                else
-                {
-                    throw (new Exception("No Url given"));
+                } else {
+                    throw new Exception("No Url given");
                 }
 
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message != string.Empty)
-                    throw (new Exception(ex.Message));
-                else
-                    throw (new Exception("Could not load Url: " + url));
+            } catch (Exception ex) {
+                if (ex.Message == string.Empty) {
+                    throw new Exception("Could not load Url: " + url);
+                }
+                throw;
             }
             
         }
@@ -96,7 +88,7 @@ namespace UfXtract
         /// <param name="formatDescriberArray">An array of format describers</param>
         public void Load(string url, ArrayList formatDescriberArray)
         {
-            this.formatDescriberArray = formatDescriberArray;
+            this._formatDescriberArray = formatDescriberArray;
 
             try
             {
@@ -115,7 +107,7 @@ namespace UfXtract
                         foreach (UfFormatDescriber format in formatDescriberArray)
                         {
                             
-                            parsedUrls.Add(urlReport);
+                            _parsedUrls.Add(urlReport);
 
                             if (webPage.StatusCode == 200 && webPage.Html != null)
                                 ParseUf(webPage.Html, webPage.Url, format, true, urlReport);
@@ -156,8 +148,8 @@ namespace UfXtract
         private UfWebPage LoadHtmlDoc(string url)
         {
             UfWebPage webPage = new UfWebPage();
-            if (userAgent != "")
-                webPage.UserAgent = userAgent;
+            if (_userAgent != "")
+                webPage.UserAgent = _userAgent;
 
             try
             {
@@ -194,9 +186,9 @@ namespace UfXtract
             UfParse ufparse = new UfParse();
             ufparse.Load(htmlDoc, url, format);
             if (multiples)
-                data.Nodes.Add(ufparse.Data);
+                _data.Nodes.Add(ufparse.Data);
             else
-                data = ufparse.Data;
+                _data = ufparse.Data;
 
             urlReport.HtmlPageTitle = ufparse.HtmlPageTitle;
 
@@ -208,8 +200,8 @@ namespace UfXtract
         /// </summary>
         public string UserAgent
         {
-            get { return userAgent; }
-            set { userAgent = value; }
+            get { return _userAgent; }
+            set { _userAgent = value; }
         }
 
    
@@ -218,8 +210,8 @@ namespace UfXtract
         /// </summary>
         public Urls Urls
         {
-            get { return parsedUrls; }
-            set { parsedUrls = value; }
+            get { return _parsedUrls; }
+            set { _parsedUrls = value; }
         }
 
         /// <summary>
@@ -227,8 +219,8 @@ namespace UfXtract
         /// </summary>
         public UfDataNode Data
         {
-            get { return data; }
-            set { data = value; }
+            get { return _data; }
+            set { _data = value; }
         }
 
         /// <summary>
@@ -236,8 +228,8 @@ namespace UfXtract
         /// </summary>
         public UfFormatDescriber FormatDescriber
         {
-            get { return formatDescriber; }
-            set { formatDescriber = value; }
+            get { return _formatDescriber; }
+            set { _formatDescriber = value; }
         }
 
         /// <summary>
@@ -245,8 +237,8 @@ namespace UfXtract
         /// </summary>
         public ArrayList FormatDescriberArray
         {
-            get { return formatDescriberArray; }
-            set { formatDescriberArray = value; }
+            get { return _formatDescriberArray; }
+            set { _formatDescriberArray = value; }
         }
 
 
