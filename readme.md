@@ -1,3 +1,10 @@
+Fork Information
+------------
+This fork has the purpose of switching the basic usage of the WebRequest class with Hammock RestClient. This change has the purpose of making all the requests async and, where possible, parallel.
+
+More on this when I start coding. If there is a stable code-base, a tag will be created.
+
+
 <img src="http://www.ufxtract.com/images/ufxtract-logo.gif"> 
 ============================
 
