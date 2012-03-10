@@ -4,6 +4,50 @@
         <name>UfXtract</name>
     </assembly>
     <members>
+        <member name="T:UfXtract.Describers.UfFormats">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.Xfn">
+            <summary>Gets the Format Describer for the XHTML Friends Network microformat</summary>
+            <returns>The UfFormatDescriber for Xfn</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.NoFollow">
+            <summary>
+            Gets the format describer for the NoFollow microformat
+            </summary>
+            <returns>The UfFormatDescriber for NoFollow relation</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.License">
+            <summary>
+            Gets the format describer for the License microformat
+            </summary>
+            <returns>The UfFormatDescriber for the License relation</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.ItemLicense">
+            <summary>
+            Gets the format describer for the ItemLicense microformat
+            </summary>
+            <returns>The UfFormatDescriber for the Item License relation</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.Principles">
+            <summary>
+            Gets the format describer for the Principles microformat
+            </summary>
+            <returns>The UfFormatDescriber for the Principles relation</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.Directory">
+            <summary>
+            Gets the format describer for the Directory microformat
+            </summary>
+            <returns>The UfFormatDescriber for the Directory relation</returns>
+        </member>
+        <member name="M:UfXtract.Describers.UfFormats.Home">
+            <summary>
+            Gets the format describer for the Home microformat
+            </summary>
+            <returns>The UfFormatDescriber for the Home relation</returns>
+        </member>
         <member name="T:UfXtract.Utilities.XmlConformWriter">
             <summary>
             Derived from XmlTextWriter class. Overrides the WriteString and WriteStartElement methods.
@@ -289,7 +333,7 @@
             Loads a webpage and parse the results
             </summary>
         </member>
-        <member name="M:UfXtract.UfWebRequest.Load(System.String,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfWebRequest.Load(System.String,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Loads a single Html pages and does a microformat parse
             </summary>
@@ -599,7 +643,7 @@
             Converts a UfDataNode structure into a very basic form HTML.
             </summary>
         </member>
-        <member name="M:UfXtract.UfDataToMachineHtml.Convert(UfXtract.UfDataNode,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfDataToMachineHtml.Convert(UfXtract.UfDataNode,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Converts a UfDataNode structure into a very basic form HTML.
             </summary>
@@ -688,7 +732,7 @@
             The main parser functions.
             </summary>
         </member>
-        <member name="M:UfXtract.UfParse.Load(System.String,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfParse.Load(System.String,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Load and parse a Html string.
             </summary>
@@ -696,14 +740,14 @@
             <param name="url">A Url for relative path operations</param>
             <param name="formatDescriber">The microformat format describer</param>
         </member>
-        <member name="M:UfXtract.UfParse.Load(HtmlAgilityPack.HtmlDocument,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfParse.Load(HtmlAgilityPack.HtmlDocument,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Load and parse a Html document.
             </summary>
             <param name="document">HtmlAgilityPack Htmldocument object</param>
             <param name="formatDescriber">The microformat format describer</param>
         </member>
-        <member name="M:UfXtract.UfParse.Load(System.String,System.String,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfParse.Load(System.String,System.String,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Load and parse a Html string.
             </summary>
@@ -711,7 +755,7 @@
             <param name="url">A Url for relative path operations</param>
             <param name="formatDescriber">The microformat format describer</param>
         </member>
-        <member name="M:UfXtract.UfParse.Load(HtmlAgilityPack.HtmlDocument,System.String,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfParse.Load(HtmlAgilityPack.HtmlDocument,System.String,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Load and parse a Html document.
             </summary>
@@ -778,39 +822,49 @@
             Gets the Html page title
             </summary>
         </member>
-        <member name="T:UfXtract.UfFormatDescriber">
+        <member name="T:UfXtract.Describers.UfFormatDescriber">
             <summary>
             Microformats format description
             </summary>
         </member>
-        <member name="M:UfXtract.UfFormatDescriber.#ctor">
+        <member name="M:UfXtract.Describers.UfFormatDescriber.#ctor">
             <summary>
             Microformats format description
             </summary>
         </member>
-        <member name="P:UfXtract.UfFormatDescriber.Name">
+        <member name="P:UfXtract.Describers.UfFormatDescriber.Name">
             <summary>
             The name of the microformats formet
             </summary>
         </member>
-        <member name="P:UfXtract.UfFormatDescriber.Description">
+        <member name="P:UfXtract.Describers.UfFormatDescriber.Description">
             <summary>
             The description of the microformats formet
             </summary>
         </member>
-        <member name="P:UfXtract.UfFormatDescriber.BaseElement">
+        <member name="P:UfXtract.Describers.UfFormatDescriber.BaseElement">
             <summary>
             The base element
             </summary> 
         </member>
-        <member name="P:UfXtract.UfFormatDescriber.Type">
+        <member name="P:UfXtract.Describers.UfFormatDescriber.Type">
             <summary>
             The type of microformats format
             </summary>
         </member>
-        <member name="T:UfXtract.UfFormatDescriber.FormatTypes">
+        <member name="T:UfXtract.Describers.UfFormatDescriber.FormatTypes">
             <summary>
             Microformats format type
+            </summary>
+        </member>
+        <member name="F:UfXtract.Describers.UfFormatDescriber.FormatTypes.Elemental">
+            <summary>
+            Specifies a simple format type
+            </summary>
+        </member>
+        <member name="F:UfXtract.Describers.UfFormatDescriber.FormatTypes.Compound">
+            <summary>
+            Specifies a compount format type
             </summary>
         </member>
         <member name="T:UfXtract.UfElementDescriber">
@@ -1080,7 +1134,7 @@
             Converts a UfDataNode structure into JSON
             </summary>
         </member>
-        <member name="M:UfXtract.UfDataToJson.Convert(UfXtract.UfDataNode,UfXtract.UfFormatDescriber,System.String)">
+        <member name="M:UfXtract.UfDataToJson.Convert(UfXtract.UfDataNode,UfXtract.Describers.UfFormatDescriber,System.String)">
             <summary>
             Converts a UfDataNode structure into JSON
             </summary>
@@ -1106,7 +1160,7 @@
             <param name="callBack">JSONP callback function name to wrap JSON object</param>
             <returns>JSON string</returns>
         </member>
-        <member name="M:UfXtract.UfDataToJson.Convert(UfXtract.UfDataNode,UfXtract.UfFormatDescriber)">
+        <member name="M:UfXtract.UfDataToJson.Convert(UfXtract.UfDataNode,UfXtract.Describers.UfFormatDescriber)">
             <summary>
             Converts a UfDataNode structure into JSON
             </summary>

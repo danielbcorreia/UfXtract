@@ -7,6 +7,7 @@ namespace UfXtract.Describers
     using System.Collections.Generic;
 
     ///<summary>
+    /// A set of standard microformats
     ///</summary>
     public class UfFormats
     {
@@ -510,7 +511,7 @@ namespace UfXtract.Describers
             uFormat.BaseElement = uFElement;
             uFElement.AllowedTags.Add("a", "link");
 
-            uFElement.AddAttributeValue(
+            uFElement.AddAttributeValues(
                 new Dictionary<string, string>
                     {
                         {"met", ""},
@@ -542,231 +543,323 @@ namespace UfXtract.Describers
             return uFormat;
         }
 
+        /// <summary>
+        /// Gets the format describer for the NoFollow microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for NoFollow relation</returns>
         public static UfFormatDescriber NoFollow()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "nofollow";
-            uFormat.Description = "Stops search engines following links";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "nofollow",
+                Description = "Stops search engines following links",
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "nofollow";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "nofollow", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("nofollow"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("nofollow");
+
             return uFormat;
         }
 
+        /// <summary>
+        /// Gets the format describer for the License microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for the License relation</returns>
         public static UfFormatDescriber License()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "license";
-            uFormat.Description = "License";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "license", 
+                Description = "License", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "license";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "license", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("license"));
+
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("license");
+
             return uFormat;
         }
 
-
+        /// <summary>
+        /// Gets the format describer for the ItemLicense microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for the Item License relation</returns>
         public static UfFormatDescriber ItemLicense()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "item-license";
-            uFormat.Description = "item-license used in hNews hEntry item";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "item-license",
+                Description = "item-license used in hNews hEntry item",
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "item-license";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "item-license",
+                Attribute = "rel",
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("item-license"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("item-license");
+
             return uFormat;
         }
 
+        /// <summary>
+        /// Gets the format describer for the Principles microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for the Principles relation</returns>
         public static UfFormatDescriber Principles()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "principles";
-            uFormat.Description = "Principles";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "principles", 
+                Description = "Principles", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "principles";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "principles", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("principles"));
+
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("principles");
+
             return uFormat;
         }
 
+        /// <summary>
+        /// Gets the format describer for the Directory microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for the Directory relation</returns>
         public static UfFormatDescriber Directory()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "directory";
-            uFormat.Description = "directory";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "directory", 
+                Description = "directory", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "directory";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "directory", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("directory"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("directory");
+
             return uFormat;
         }
 
+        /// <summary>
+        /// Gets the format describer for the Home microformat
+        /// </summary>
+        /// <returns>The UfFormatDescriber for the Home relation</returns>
         public static UfFormatDescriber Home()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "home";
-            uFormat.Description = "home";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "home", 
+                Description = "home", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "home";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "home", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("home"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("home");
+
             return uFormat;
         }
 
         public static UfFormatDescriber Payment()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "payment";
-            uFormat.Description = "payment";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "payment", 
+                Description = "payment", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "payment";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "payment",
+                Attribute = "rel",
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("payment"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("payment");
+
             return uFormat;
         }
 
         public static UfFormatDescriber Enclosure()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "enclosure";
-            uFormat.Description = "enclosure";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "enclosure", 
+                Description = "enclosure", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "enclosure";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlText;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "enclosure", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlText
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("enclosure"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("enclosure");
+
             return uFormat;
         }
 
         public static UfFormatDescriber Tag()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "tag";
-            uFormat.Description = "Tag";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "tag", 
+                Description = "Tag", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "tag";
-            uFElement.Multiples = true;
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlTextTag;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "tag",
+                Multiples = true,
+                Attribute = "rel",
+                Type = UfElementDescriber.PropertyTypes.UrlTextTag
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("tag"));
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValue("tag");
+
             return uFormat;
         }
 
         public static UfFormatDescriber VoteLinks()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "votelinks";
-            uFormat.Description = "Vote Links";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Elemental;
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlTextAttribute;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "votelinks", 
+                Description = "Vote Links", 
+                Type = UfFormatDescriber.FormatTypes.Elemental
+            };
+
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlTextAttribute
+            };
+
             uFormat.BaseElement = uFElement;
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("vote-for", "vote-abstain vote-against"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("vote-against", "vote-abstain vote-for"));
-            uFElement.AttributeValues.Add(new UfAttributeValueDescriber("vote-abstain", "vote-for vote-against"));
+
+            uFElement.AllowedTags.Add("a", "link");
+            uFElement.AddAttributeValues(
+                new Dictionary<string, string>
+                {
+                    {"vote-for", "vote-abstain vote-against"},
+                    {"vote-against", "vote-abstain vote-for"},
+                    {"vote-abstain", "vote-for vote-against"}
+                }
+            );
+            
             return uFormat;
         }
 
         public static UfFormatDescriber XFolk()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "xFolk";
-            uFormat.Description = "xFolk";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Compound;
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "xFolk",
+                Description = "xFolk",
+                Type = UfFormatDescriber.FormatTypes.Compound,
+                BaseElement = new UfElementDescriber("xfolkentry", false, true, UfElementDescriber.PropertyTypes.None)
+            };
 
-            uFormat.BaseElement = new UfElementDescriber("xfolkentry", false, true, UfElementDescriber.PropertyTypes.None);
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("taggedlink", true, false, UfElementDescriber.PropertyTypes.UrlText));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("description", false, true, UfElementDescriber.PropertyTypes.Text));
 
-            UfElementDescriber uFElement = new UfElementDescriber();
-            uFElement.Name = "tag";
-            uFElement.AllowedTags.Add("a");
-            uFElement.AllowedTags.Add("link");
-            uFElement.Attribute = "rel";
-            uFElement.Type = UfElementDescriber.PropertyTypes.UrlTextTag;
+            UfElementDescriber uFElement = new UfElementDescriber
+            {
+                Name = "tag", 
+                Attribute = "rel", 
+                Type = UfElementDescriber.PropertyTypes.UrlTextTag
+            };
+
+            uFElement.AllowedTags.Add("a", "link");
             uFElement.AttributeValues.Add(new UfAttributeValueDescriber("tag"));
             uFormat.BaseElement.Elements.Add(uFElement);
-
 
             return uFormat;
         }
 
         public static UfFormatDescriber Geo()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "geo";
-            uFormat.Description = "Location constructed of latitude and longitude";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Compound;
-            uFormat.BaseElement = new UfElementDescriber("geo", false, true, UfElementDescriber.PropertyTypes.Text);
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "geo",
+                Description = "Location constructed of latitude and longitude",
+                Type = UfFormatDescriber.FormatTypes.Compound,
+                BaseElement = new UfElementDescriber("geo", false, true, UfElementDescriber.PropertyTypes.Text)
+            };
+
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("latitude", false, false, UfElementDescriber.PropertyTypes.Text));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("longitude", false, false, UfElementDescriber.PropertyTypes.Text));
+
             return uFormat;
         }
 
         public static UfFormatDescriber Adr()
         {
-            UfFormatDescriber uFormat = new UfFormatDescriber();
-            uFormat.Name = "adr";
-            uFormat.Description = "Address";
-            uFormat.Type = UfFormatDescriber.FormatTypes.Compound;
-            uFormat.BaseElement = new UfElementDescriber("adr", false, true, UfElementDescriber.PropertyTypes.None);
+            UfFormatDescriber uFormat = new UfFormatDescriber
+            {
+                Name = "adr",
+                Description = "Address",
+                Type = UfFormatDescriber.FormatTypes.Compound,
+                BaseElement = new UfElementDescriber("adr", false, true, UfElementDescriber.PropertyTypes.None)
+            };
+
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("type", false, true, "work,home,pref,postal,dom,intl"));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("post-office-box", false, false, UfElementDescriber.PropertyTypes.Text));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("extended-address", false, true, UfElementDescriber.PropertyTypes.Text));
@@ -775,9 +868,9 @@ namespace UfXtract.Describers
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("region", false, false, UfElementDescriber.PropertyTypes.Text));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("postal-code", false, false, UfElementDescriber.PropertyTypes.Text));
             uFormat.BaseElement.Elements.Add(new UfElementDescriber("country-name", false, false, UfElementDescriber.PropertyTypes.Text));
+
             return uFormat;
         }
-
 
         #endregion
 
@@ -1074,7 +1167,11 @@ namespace UfXtract.Describers
             describer.AttributeValues.Add(new UfAttributeValueDescriber(name, excludeValues));
         }
 
-        public static void AddAttributeValue(this UfElementDescriber describer, IDictionary<string, string> dictionary) 
+        public static void AddAttributeValue(this UfElementDescriber describer, string name) {
+            describer.AttributeValues.Add(new UfAttributeValueDescriber(name));
+        }
+
+        public static void AddAttributeValues(this UfElementDescriber describer, IDictionary<string, string> dictionary) 
         {
             foreach (var name in dictionary.Keys) {
                 describer.AttributeValues.Add(new UfAttributeValueDescriber(name, dictionary[name]));
